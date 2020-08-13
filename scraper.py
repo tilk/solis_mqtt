@@ -4,13 +4,8 @@ import requests
 import re
 import paho.mqtt.client as mqtt
 import time
+from config import *
 
-mqtt_topic = "/solis"
-mqtt_addr = "***REMOVED***"
-mqtt_port = 1883
-addr = "***REMOVED***"
-user = "admin"
-passwd = "admin"
 url = "http://%s/status.html" % addr
 
 def scrape():

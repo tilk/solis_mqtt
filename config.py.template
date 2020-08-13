@@ -1,0 +1,7 @@
+mqtt_topic = "/solis"
+mqtt_addr = ""
+mqtt_port = 1883
+addr = ""
+user = "admin"
+passwd = "admin"
+
