@@ -2,7 +2,6 @@
 
 import requests
 import re
-from bs4 import BeautifulSoup
 import paho.mqtt.client as mqtt
 import time
 
@@ -20,9 +19,8 @@ def scrape():
     except requests.exceptions.ConnectionError:
         return 0
     try:
-        soup = BeautifulSoup(page.content, 'html.parser')
-        data = soup.find_all('script')[1]
-        obj = re.search(r"""var webdata_now_p = "(\d*)";""", data.get_text())
+        data = page.text
+        obj = re.search(r"""var webdata_now_p = "(\d*)";""", data)
         return int(obj.group(1))
     except:
         return -1
